@@ -42,20 +42,20 @@ const NuevoActivo = () => {
                         type="text"></input>
 
 
-                </label><br/>
+                </label><br />
                 <label>Valor 1</label>
                 <input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
-                    type="text"></input><br/>
+                    type="text"></input><br />
                 <label>
                     Valor 2</label>
                 <input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
-                    type="text"></input><br/>
+                    type="text"></input><br />
                 <label>Valor 3</label>
                 <input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
-                    type="text"></input><br/>
+                    type="text"></input><br />
                 <label>Nivel</label>
                 <input
                     className='w-96 m-200 border-solid border-sky-400 border-2'

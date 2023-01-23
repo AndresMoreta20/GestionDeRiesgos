@@ -599,6 +599,14 @@ export const links = [
         icon: <IoMdContacts />,
       },
       {
+        name: 'vulnerabilidades',
+        icon: <IoMdContacts />,
+      },
+      {
+        name: 'amenazas',
+        icon: <IoMdContacts />,
+      },
+      {
         name: 'controles',
         icon: <IoMdContacts />,
       },
@@ -606,10 +614,7 @@ export const links = [
         name: 'riesgos',
         icon: <IoMdContacts />,
       },
-      {
-        name: 'vulnerabilidades',
-        icon: <IoMdContacts />,
-      },
+      
       {
         name: 'locaciones',
         icon: <RiContactsLine />,

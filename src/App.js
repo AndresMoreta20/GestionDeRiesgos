@@ -4,7 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar,  ThemeSettings} from './components';
-import {Activos, Usuarios, Principal, Locaciones, Calendar, ColorPicker, Kanban, Area, Bar, ColorMapping, Financial, Line, Pie, Pyramid, Stacked, NuevoActivo, Vulnerabilidades, Controles, Riesgos} from './pages';
+import {Activos, Usuarios, Principal, Locaciones, Calendar, ColorPicker, Kanban, Area, Bar, ColorMapping, Financial, Line, Pie, Pyramid, Stacked, NuevoActivo, Vulnerabilidades, Controles, Riesgos, Amenazas} from './pages';
 //import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 //import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import { useStateContext } from './contexts/ContextProvider';
@@ -67,6 +67,7 @@ const {activeMenu} = useStateContext();
             <Route path='/usuarios' element={<Usuarios />} />
             <Route path='/vulnerabilidades' element={<Vulnerabilidades />} />
             <Route path='/controles' element={<Controles />} />
+            <Route path='/amenazas' element={<Amenazas />} />
             <Route path='/riesgos' element={<Riesgos />} />
             <Route path='/locaciones' element={<Locaciones />} />
             <Route path='/nuevoActivo' element={<NuevoActivo />} />
