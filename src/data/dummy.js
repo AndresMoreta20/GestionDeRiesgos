@@ -1607,7 +1607,7 @@ export const customersData = [
 ];
 
 
-export const activosData = [
+export var activosData = [
   {
     codigo: 'Doc1',
     nombre: 'Sueldos',

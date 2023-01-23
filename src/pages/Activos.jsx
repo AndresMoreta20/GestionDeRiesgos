@@ -22,8 +22,7 @@ const Activos = () => {
                 background: 'purple',
                 borderRadius: ''
               }}
-              onClick={()=>{navigate('/NuevoActivo')}}
-              >
+              onClick={()=>{navigate('/NuevoActivo')}}>
               Agregar
             </button>
       <GridComponent
