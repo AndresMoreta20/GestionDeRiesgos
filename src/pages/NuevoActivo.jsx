@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 
 //import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter, registerEventHandlers } from '@syncfusion/ej2-react-grids';
-import { activosData } from '../data/dummy';
+//import { activosData } from '../data/dummy';
 import { Header } from '../components';
 
 import { addDoc, collection } from 'firebase/firestore';
