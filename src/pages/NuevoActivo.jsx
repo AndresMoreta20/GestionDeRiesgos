@@ -20,14 +20,14 @@ const NuevoActivo = () => {
 
     const [nombreS, setNombreS] = useState('');
     const [descripcionS, setDescripcionS] = useState('');
-    const [categoriaS, setCategoriaS] = useState('');
-    const [etiquetaS, setEtiquetaS] = useState('');
-    const [clasificacionS, setClasificacionS] = useState('');
+    const [categoriaS, setCategoriaS] = useState(categorias[0]);
+    const [etiquetaS, setEtiquetaS] = useState(etiquetas[0]);
+    const [clasificacionS, setClasificacionS] = useState(clasificaciones[0]);
     const [valor1S, setValor1S] = useState(0);
     const [valor2S, setValor2S] = useState(0);
     const [valor3S, setValor3S] = useState(0);
     const [valorTotalS, setValorTotalS] = useState(0);
-    const [nivelS, setNivelS] = useState(0);
+    const [nivelS, setNivelS] = useState(nivel[0]);
     
 
     let dataCopy = activosData;
@@ -114,20 +114,20 @@ const NuevoActivo = () => {
                         type="text" onChange={e => setDescripcionS(e.target.value)}></input>
                 </label><br />
                 <label>Categoría <br />
-                    <select id='categoriaSelect' value={categoriaS} onChange={e => setCategoriaS(e.target.value)}>
+                    <select defaultValue={categorias[0]} id='categoriaSelect' onChange={e => setCategoriaS(e.target.value)}>
                         <option value={categorias[0]}>{categorias[0]}</option>
                         <option value={categorias[1]}>{categorias[1]}</option>
                     </select>
                 </label><br />
                 <label>Etiqueta <br />
-                    <select id='etiquetaSelect' onChange={e => setEtiquetaS(e.target.value)}>
+                    <select defaultValue={categorias[0]} id='etiquetaSelect' onChange={e => setEtiquetaS(e.target.value)}>
                         <option value={etiquetas[0]}>{etiquetas[0]}</option>
                         <option value={etiquetas[1]}>{etiquetas[1]}</option>
                     </select>
                 </label><br />
 
                 <label>Clasificación <br />
-                    <select id='clasificacionSelect' onChange={e => setClasificacionS(e.target.value)}>
+                    <select defaultValue={categorias[0]} id='clasificacionSelect' onChange={e => setClasificacionS(e.target.value)}>
                         <option value={clasificaciones[0]}>{clasificaciones[0]}</option>
                         <option value={clasificaciones[1]}>{clasificaciones[1]}</option>
                     </select>
