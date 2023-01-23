@@ -114,7 +114,7 @@ const NuevoActivo = () => {
                         type="text" onChange={e => setDescripcionS(e.target.value)}></input>
                 </label><br />
                 <label>Categoría <br />
-                    <select id='categoriaSelect' value={categoriaS} onChange={(choice) => setCategoriaS(choice.prototype.toString())}>
+                    <select id='categoriaSelect' value={categoriaS} onChange={e => setCategoriaS(e.target.value)}>
                         <option value={categorias[0]}>{categorias[0]}</option>
                         <option value={categorias[1]}>{categorias[1]}</option>
                     </select>

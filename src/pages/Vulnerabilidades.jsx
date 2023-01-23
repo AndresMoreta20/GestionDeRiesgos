@@ -1,7 +1,7 @@
 import React from 'react';
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
-import {Routes, Route, useNavigate} from 'react-router-dom';
-import { activosData, customersData, customersGrid, activosGrid } from '../data/dummy';
+import { useNavigate} from 'react-router-dom';
+import { activosData, activosGrid } from '../data/dummy';
 import { Header } from '../components';
 
 function Vulnerabilidades() {

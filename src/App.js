@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { Navbar, Footer, Sidebar,  ThemeSettings} from './components';
+import { Navbar, Sidebar } from './components';
 import {Activos, Usuarios, Principal, Locaciones, Calendar, ColorPicker, Kanban, Area, Bar, ColorMapping, Financial, Line, Pie, Pyramid, Stacked, NuevoActivo, Vulnerabilidades, Controles, Riesgos, Amenazas} from './pages';
 //import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 //import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
