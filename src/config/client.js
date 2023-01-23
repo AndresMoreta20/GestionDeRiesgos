@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
 //import { getAuth,onAuthStateChanged, createUserWithEmailAndPassword} from "firebase/auth";
-import { getFirestore, collection,addDoc} from "firebase/firestore";
+import { getFirestore} from "firebase/firestore";
 //import { addUser } from "../pages/api/users";
-import { getStorage } from "firebase/storage";
+//import { getStorage } from "firebase/storage";
 //import { useRouter } from "next/router";
 const firebaseConfig = {
   apiKey: "AIzaSyDxpQ7VhPfpxCHBqlH3t1Zz8FPZR39V9_Q",
