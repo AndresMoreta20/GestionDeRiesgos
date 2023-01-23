@@ -1718,9 +1718,7 @@ export var activosData = [
         valor: [1, 2, 2],
         valorTotal: 1.333,
         nivel: 'Bajo',
-      },
-    
-      ,];
+      }];
 
 export const employeesData = [
   {

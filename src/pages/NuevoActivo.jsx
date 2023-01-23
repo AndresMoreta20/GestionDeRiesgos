@@ -29,7 +29,7 @@ const NuevoActivo = () => {
     const [nivelS, setNivelS] = useState(nivel[0]);
     
 
-    let dataCopy = activosData;
+    //let dataCopy = activosData;
 
     /*let activoTemp = {
         categoria: 'Doc',
