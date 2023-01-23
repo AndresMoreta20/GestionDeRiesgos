@@ -1618,7 +1618,7 @@ export var activosData = [
     clasificacion: 'Publico',
     valor: [1, 2, 2],
     valorTotal: 1.333,
-    nivel: 'Bajo',
+    nivel: 'Bajo'
   },
   {
     codigo: 'Doc2',
@@ -1630,7 +1630,7 @@ export var activosData = [
     clasificacion: 'Publico',
     valor: [1, 2, 2],
     valorTotal: 1.333,
-    nivel: 'Bajo',
+    nivel: 'Bajo'
   },
   {
     codigo: 'Doc3',
@@ -1642,10 +1642,8 @@ export var activosData = [
     clasificacion: 'Publico',
     valor: [1, 2, 2],
     valorTotal: 1.333,
-    nivel: 'Bajo',
-  },
-
-  ,];
+    nivel: 'Bajo'
+  }];
 
   export const amenazasData = [
     {
@@ -1658,7 +1656,7 @@ export var activosData = [
       clasificacion: 'Publico',
       valor: [1, 2, 2],
       valorTotal: 1.333,
-      nivel: 'Bajo',
+      nivel: 'Bajo'
     },
     {
       codigo: 'Doc2',
@@ -1670,7 +1668,7 @@ export var activosData = [
       clasificacion: 'Publico',
       valor: [1, 2, 2],
       valorTotal: 1.333,
-      nivel: 'Bajo',
+      nivel: 'Bajo'
     },
     {
       codigo: 'Doc3',
@@ -1682,10 +1680,8 @@ export var activosData = [
       clasificacion: 'Publico',
       valor: [1, 2, 2],
       valorTotal: 1.333,
-      nivel: 'Bajo',
-    },
-  
-    ,];
+      nivel: 'Bajo'
+    }];
     export const controlesData = [
       {
         codigo: 'Doc1',
