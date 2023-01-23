@@ -1632,8 +1632,99 @@ export const activosData = [
     valorTotal: 1.333,
     nivel: 'Bajo',
   },
+  {
+    codigo: 'Doc3',
+    nombre: 'Sueldos',
+    descripcion: 'Sueldos de empleados',
+    categoria: 'Doc',
+    etiqueta: 'Con',
+    StatusBg: '#FFCCCB',
+    clasificacion: 'Publico',
+    valor: [1, 2, 2],
+    valorTotal: 1.333,
+    nivel: 'Bajo',
+  },
 
   ,];
+
+  export const amenazasData = [
+    {
+      codigo: 'Doc1',
+      nombre: 'Sueldos',
+      descripcion: 'Sueldos de empleados',
+      categoria: 'Doc',
+      etiqueta: 'Con',
+      StatusBg: '#8BE78B',
+      clasificacion: 'Publico',
+      valor: [1, 2, 2],
+      valorTotal: 1.333,
+      nivel: 'Bajo',
+    },
+    {
+      codigo: 'Doc2',
+      nombre: 'Sueldos',
+      descripcion: 'Sueldos de empleados',
+      categoria: 'Doc',
+      etiqueta: 'Con',
+      StatusBg: '#FFCCCB',
+      clasificacion: 'Publico',
+      valor: [1, 2, 2],
+      valorTotal: 1.333,
+      nivel: 'Bajo',
+    },
+    {
+      codigo: 'Doc3',
+      nombre: 'Sueldos',
+      descripcion: 'Sueldos de empleados',
+      categoria: 'Doc',
+      etiqueta: 'Con',
+      StatusBg: '#FFCCCB',
+      clasificacion: 'Publico',
+      valor: [1, 2, 2],
+      valorTotal: 1.333,
+      nivel: 'Bajo',
+    },
+  
+    ,];
+    export const controlesData = [
+      {
+        codigo: 'Doc1',
+        nombre: 'Sueldos',
+        descripcion: 'Sueldos de empleados',
+        categoria: 'Doc',
+        etiqueta: 'Con',
+        StatusBg: '#8BE78B',
+        clasificacion: 'Publico',
+        valor: [1, 2, 2],
+        valorTotal: 1.333,
+        nivel: 'Bajo',
+      },
+      {
+        codigo: 'Doc2',
+        nombre: 'Sueldos',
+        descripcion: 'Sueldos de empleados',
+        categoria: 'Doc',
+        etiqueta: 'Con',
+        StatusBg: '#FFCCCB',
+        clasificacion: 'Publico',
+        valor: [1, 2, 2],
+        valorTotal: 1.333,
+        nivel: 'Bajo',
+      },
+      {
+        codigo: 'Doc3',
+        nombre: 'Sueldos',
+        descripcion: 'Sueldos de empleados',
+        categoria: 'Doc',
+        etiqueta: 'Con',
+        StatusBg: '#FFCCCB',
+        clasificacion: 'Publico',
+        valor: [1, 2, 2],
+        valorTotal: 1.333,
+        nivel: 'Bajo',
+      },
+    
+      ,];
 
 export const employeesData = [
   {
