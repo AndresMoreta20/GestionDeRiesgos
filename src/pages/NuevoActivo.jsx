@@ -1,7 +1,6 @@
 import React, {useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+
 //import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter, registerEventHandlers } from '@syncfusion/ej2-react-grids';
-import { useForm } from "react-hook-form";
 import { activosData } from '../data/dummy';
 import { Header } from '../components';
 
@@ -10,9 +9,9 @@ import { db } from '../config/client'
 
 
 const NuevoActivo = () => {
-    const selectionsettings = { persistSelection: true };
+    /*const selectionsettings = { persistSelection: true };
     const toolbarOptions = ['Delete'];
-    const editing = { allowDeleting: true, allowEditing: true };
+    const editing = { allowDeleting: true, allowEditing: true };*/
     const categorias = ['Doc', 'Psw'];
     const etiquetas = ['Con', 'Acc'];
     const clasificaciones = ['Publico', 'Privado'];
@@ -43,10 +42,10 @@ const NuevoActivo = () => {
         valorTotal: 1.333,
     }*/
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const navigate = useNavigate();
+    //const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    //const navigate = useNavigate();
    // const onSubmit = data => console.log(data);
-    const handleSubmitActivo = async (e) =>{
+    const handleSubmitActivo = async () =>{
         //e.preventDefault()
         //console.log(e.target[1].value)
         //await nuevoActivo(activoU);
@@ -63,6 +62,11 @@ const NuevoActivo = () => {
         }
 */
        // console.log(activoTemp)
+       setValorTotalS (1.3);
+       console.log(valor1S);
+       console.log(valor2S);
+       console.log(valor3S);
+       console.log(valorTotalS);
         const res = await addDoc(collection(db, "Activos"), {
             "categoria":categoriaS,
             "clasificacion":clasificacionS,
@@ -71,6 +75,7 @@ const NuevoActivo = () => {
             "nivel":nivelS,
             "nombre":nombreS
          });
+         console.log(res);
          //const res = await addDoc(collection(db, "Activos"), activoTemp);
     }
 /*
