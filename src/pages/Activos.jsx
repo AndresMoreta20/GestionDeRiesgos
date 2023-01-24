@@ -13,61 +13,13 @@ const Activos = () => {
  
   
 
-  const activosGrid = [
-    { type: 'checkbox', width: '50' },
-    {
-      field: 'codigo',
-      headerText: 'Codigo',
-      width: '80',
-      textAlign: 'Center',
-      isPrimaryKey: true,
-    },
-    {
-      field: 'nombre',
-      headerText: 'Nombre',
-      width: '100',
-      textAlign: 'Center'
-    },
-
-    {
-      field: 'descripcion',
-      headerText: 'Descripcion',
-      width: '200',
-      format: 'C2',
-      textAlign: 'Center'
-    },
-    {
-      field: 'etiqueta',
-      headerText: 'Etiqueta',
-      width: '100',
-      textAlign: 'Center'
-    },
-    {
-      field: 'categoria',
-      headerText: 'Categoria',
-      width: '100',
-      textAlign: 'Center'
-    },
-
-    {
-      field: 'clasificacion',
-      headerText: 'Clasificacion',
-      width: '100',
-      textAlign: 'Center'
-    },
-
-    {
-      field: 'valorGlobal',
-      headerText: 'Valor Gloabl',
-      width: '100',
-      textAlign: 'Center'
-    },
-    {
-      field: 'nivel',
-      headerText: 'Nivel',
-      width: '100',
-      textAlign: 'Center'
-    }]
+  const activosGrid = [{field:'codigo', headerName:'Codigo', width:'70'},
+  {field:'nombre', headerName:'Nombre', width:'100'},
+  {field:'descripcion', headerName:'descripcion', width:'100'},
+  {field:'categoria', headerName:'Categoría', width:'100'},
+  {field:'etiqueta', headerName:'Etiqueta', width:'100'},
+  {field:'nivel', headerName:'Nivel', width:'100'},
+  {field:'valorGlobal', headerName:'Valor Global', width:'100'}]
   //const navigate = useNavigate();
   
   //const [activosList, setActivosList] = useState({"codigo":"AM74","descripcion":"in","etiqueta":"JA","nombre":"inventario","integridad":2,"valorGlobal":1.3333333333333333,"clasificacion":"Restringido","categoria":"AM","disponibilidad":1,"nivel":"Bajo","confidencialidad":1},{"descripcion":"de matriz","nombre":"servidor","confidencialidad":1,"etiqueta":"HaW","nivel":"Medio","integridad":2,"valorGlobal":2,"clasificacion":"Publico","categoria":"Sup","disponibilidad":3,"codigo":"Sup22"},{"valorGlobal":1.6666666666666667,"etiqueta":"JA","clasificacion":"Restringido","categoria":"AM","codigo":"AM41","integridad":2,"disponibilidad":2,"nombre":"informe","confidencialidad":1,"descripcion":"in","nivel":"Medio"},{"categoria":"Doc","valorGlobal":0.10000000000000002,"integridad":0.1,"confidencialidad":0.1,"codigo":"Doc28","nombre":"","disponibilidad":0.1,"clasificacion":"Confidencial","etiqueta":"Con","descripcion":"","nivel":"Bajo"});
@@ -99,7 +51,7 @@ const Activos = () => {
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="Page" title="Activos " />
       
-      <ActivosTabla data={activosList} grid = {activosGrid} />
+      <ActivosTabla data={activosList} columns = {activosGrid} />
       
 
     </div>

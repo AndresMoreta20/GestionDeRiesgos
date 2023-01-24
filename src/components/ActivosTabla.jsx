@@ -4,7 +4,7 @@ import { doc, deleteDoc } from "firebase/firestore";
 import { DataGrid } from '@mui/x-data-grid';
 import { db } from '../config/client';
 export default function ActivosTabla(props) {
-    
+   /* 
 const columns = [{field:'codigo', headerName:'Codigo', width:'70'},
 {field:'nombre', headerName:'Nombre', width:'100'},
 {field:'descripcion', headerName:'descripcion', width:'100'},
@@ -13,7 +13,7 @@ const columns = [{field:'codigo', headerName:'Codigo', width:'70'},
 {field:'nivel', headerName:'Nivel', width:'100'},
 {field:'valorGlobal', headerName:'Valor Global', width:'100'}
 ]
-
+*/
 
 
 const[selectionModel, setSelectionModel] = useState();
@@ -71,7 +71,7 @@ return (
       
       <DataGrid
         rows={props.data}
-        columns={columns}
+        columns={props.columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
         onRowClick={(rowData) => {
