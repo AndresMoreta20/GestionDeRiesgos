@@ -1,3 +1,4 @@
+export { default as EditarActivo } from './EditarActivo';
 export { default as Amenazas } from './Amenazas';
 export { default as Controles } from './Controles';
 export { default as Vulnerabilidades } from './Vulnerabilidades';

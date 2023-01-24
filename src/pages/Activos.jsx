@@ -15,7 +15,7 @@ const Activos = () => {
 
   const activosGrid = [{field:'codigo', headerName:'Codigo', width:'70'},
   {field:'nombre', headerName:'Nombre', width:'100'},
-  {field:'descripcion', headerName:'descripcion', width:'100'},
+  {field:'descripcion', headerName:'Descripción', width:'200'},
   {field:'categoria', headerName:'Categoría', width:'100'},
   {field:'etiqueta', headerName:'Etiqueta', width:'100'},
   {field:'nivel', headerName:'Nivel', width:'100'},
@@ -26,30 +26,31 @@ const Activos = () => {
   const [activosList, setActivosList] = useState([]);
   //const [loadComponent, setLoadComponent] = useState(true);
   //let activosList2 = [{"descripcion":"in","nivel":"Bajo","clasificacion":"Restringido","etiqueta":"JA","confidencialidad":1,"valorGlobal":1.3333333333333333,"categoria":"AM","disponibilidad":1,"codigo":"AM74","integridad":2,"nombre":"inventario"},{"disponibilidad":3,"nombre":"servidor","valorGlobal":2,"etiqueta":"HaW","integridad":2,"confidencialidad":1,"nivel":"Medio","codigo":"Sup22","clasificacion":"Publico","descripcion":"de matriz","categoria":"Sup"},{"valorGlobal":1.6666666666666667,"nivel":"Medio","codigo":"AM41","disponibilidad":2,"nombre":"informe","categoria":"AM","descripcion":"in","confidencialidad":1,"clasificacion":"Restringido","etiqueta":"JA","integridad":2}];
-  const cargarActivos = async () => {
-    const querySnapshot = await getDocs(collection(db, 'Activos'));
-    var activosL = [];
-    
-    querySnapshot.docs.forEach(doc => {
-      var tmpData  = doc.data();
-      var key = doc.id;
-      activosL.push({key,
-        ...tmpData});
-    });
   
-    setActivosList(activosL);
-    console.log(activosList);
-  }
   
   
 
   useEffect(() => {
+    const cargarActivos = async () => {
+      const querySnapshot = await getDocs(collection(db, 'Activos'));
+      var activosL = [];
+      
+      querySnapshot.docs.forEach(doc => {
+        var tmpData  = doc.data();
+        var key = doc.id;
+        activosL.push({key,
+          ...tmpData});
+      });
+    
+      setActivosList(activosL);
+      console.log(activosList);
+    }
     cargarActivos();
-  });
+  }, []);
   
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Page" title="Activos " />
+      <Header category="Página" title="Activos " />
       
       <ActivosTabla data={activosList} columns = {activosGrid} />
       

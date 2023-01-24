@@ -1,88 +1,77 @@
-import React, {useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { doc, deleteDoc } from "firebase/firestore";
 import { DataGrid } from '@mui/x-data-grid';
 import { db } from '../config/client';
 export default function ActivosTabla(props) {
-   /* 
-const columns = [{field:'codigo', headerName:'Codigo', width:'70'},
-{field:'nombre', headerName:'Nombre', width:'100'},
-{field:'descripcion', headerName:'descripcion', width:'100'},
-{field:'categoria', headerName:'Categoría', width:'100'},
-{field:'etiqueta', headerName:'Etiqueta', width:'100'},
-{field:'nivel', headerName:'Nivel', width:'100'},
-{field:'valorGlobal', headerName:'Valor Global', width:'100'}
-]
-*/
 
+    const [selectionModel, setSelectionModel] = useState();
 
-const[selectionModel, setSelectionModel] = useState();
-
-const eliminarActivos = async () => {
-    if(selectionModel != null){
-        await deleteDoc(doc(db, "Activos", selectionModel.row.key));
+    const eliminarActivos = async () => {
+        if (selectionModel != null) {
+            await deleteDoc(doc(db, "Activos", selectionModel.row.key));
+        }
+        console.log(selectionModel.row);
+        window.location.reload();
     }
-    console.log(selectionModel.row);
-    window.location.reload(false);
-  }
 
 
-const navigate = useNavigate();
-return (
-    <div style={{ height: 400, width: '200em' }}>
-        <button type='button'
-        className='text-2x1 p-2
+    const navigate = useNavigate();
+    return (
+        <div style={{ height: 400, width: '200em' }}>
+            <button type='button'
+                className='text-2x1 p-2
           hover:drop-shadow-xl
           hover:bg-light-gray
           text-white'
-        style={{
-          background: 'purple',
-          borderRadius: ''
-        }}
-        onClick={() => { navigate('/NuevoActivo') }}>
-        Agregar
-      </button>
-      
-      <button type='button'
-        className='text-2x1 p-2
-          hover:drop-shadow-xl
-          hover:bg-light-gray
-          text-white'
-        style={{
-          background: 'blue',
-          borderRadius: ''
-        }}
-        onClick={() => {}}>
-        Actualizar
-      </button>
+                style={{
+                    background: 'purple',
+                    borderRadius: ''
+                }}
+                onClick={() => { navigate('/NuevoActivo') }}>
+                Agregar
+            </button>
 
-      <button type='button'
-        className='text-2x1 p-2
+            <button type='button'
+                className='text-2x1 p-2
           hover:drop-shadow-xl
           hover:bg-light-gray
           text-white'
-        style={{
-          background: 'red',
-          borderRadius: ''
-        }}
-        onClick={() => {eliminarActivos()}}>
-        Eliminar
-      </button>
-      
-      <DataGrid
-        rows={props.data}
-        columns={props.columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        onRowClick={(rowData) => {
-            setSelectionModel(rowData);
-          }}
-        getRowId={(row) => row.codigo}
-      />
-      {console.log(selectionModel)}
-    </div>
-  );
-  
+                style={{
+                    background: 'blue',
+                    borderRadius: ''
+                }}
+                onClick={() => { navigate('/EditarActivo', { state: { data: selectionModel.row } }) }}>
+                Actualizar
+            </button>
+
+            <button type='button'
+                className='text-2x1 p-2
+          hover:drop-shadow-xl
+          hover:bg-light-gray
+          text-white'
+                style={{
+                    background: 'red',
+                    borderRadius: ''
+                }}
+                onClick={() => { eliminarActivos() }}>
+                Eliminar
+            </button>
+
+            <DataGrid
+                rows={props.data}
+                columns={props.columns}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                onRowClick={(rowData) => {
+                    setSelectionModel(rowData);
+                }}
+                getRowId={(row) => row.codigo}
+            />
+            {console.log(selectionModel)}
+        </div>
+    );
+
 }
 /*import React from 'react'
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
