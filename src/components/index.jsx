@@ -1,3 +1,4 @@
+export { default as ActivosTabla } from './ActivosTabla';
 export { default as Button } from './Button';
 export { default as ThemeSettings } from './ThemeSettings';
 export { default as Sidebar } from './Sidebar';
