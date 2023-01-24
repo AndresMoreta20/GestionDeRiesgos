@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 //import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
 //import DataManager from '@syncfusion/ej2-data' 
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 //import { activosData, activosGrid } from '../data/dummy';
 import { Header, ActivosTabla } from '../components';
 import { collection, getDocs } from 'firebase/firestore';
@@ -45,7 +45,7 @@ const Activos = () => {
 
   useEffect(() => {
     cargarActivos();
-  }, [])
+  }, [cargarActivos()])
   
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
