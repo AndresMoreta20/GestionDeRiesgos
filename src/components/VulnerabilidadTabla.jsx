@@ -3,17 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import { doc, deleteDoc } from "firebase/firestore";
 import { DataGrid } from '@mui/x-data-grid';
 import { db } from '../config/client';
-export default function AmenazasTabla(props) {
+
+
+export default function VulnerabilidadTabla(props) {
 
     const [selectionModel, setSelectionModel] = useState();
 
-    const eliminarAmenazas = async () => {
+    const eliminarVulnerabilidad = async () => {
         if (selectionModel != null) {
-            await deleteDoc(doc(db, "Amenazas", selectionModel.row.key));
+            await deleteDoc(doc(db, "Vulnerabilidades", selectionModel.row.key));
         }
         console.log(selectionModel.row);
         window.location.reload();
     }
+
+
     const navigate = useNavigate();
     return (
         <div style={{ height: 400, width: '70em' }}>
@@ -26,7 +30,7 @@ export default function AmenazasTabla(props) {
                     background: 'purple',
                     borderRadius: ''
                 }}
-                onClick={() => { navigate('/NuevoAmenaza') }}>
+                onClick={() => { navigate('/NuevoVulnerabilidad') }}>
                 Agregar
             </button>
 
@@ -39,7 +43,7 @@ export default function AmenazasTabla(props) {
                     background: 'blue',
                     borderRadius: ''
                 }}
-                onClick={() => { selectionModel !=null ? navigate('/EditarAmenaza', { state: { data: selectionModel.row } }) : console.log("error")}}>
+                onClick={() => { selectionModel !=null ? navigate('/EditarVulnerabilidad', { state: { data: selectionModel.row } }) : console.log("error")}}>
                 Editar
             </button>
 
@@ -52,7 +56,7 @@ export default function AmenazasTabla(props) {
                     background: 'red',
                     borderRadius: ''
                 }}
-                onClick={() => { selectionModel != null ? eliminarAmenazas(): console.log("error") }}>
+                onClick={() => { selectionModel != null ? eliminarVulnerabilidad(): console.log("error") }}>
                 Eliminar
             </button>
 

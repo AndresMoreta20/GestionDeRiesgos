@@ -1,3 +1,4 @@
+export { default as VulnerabilidadTabla } from './VulnerabilidadTabla';
 export { default as AmenazasTabla } from './AmenazasTabla';
 export { default as RiesgosTabla } from './RiesgosTabla';
 export { default as ActivosTabla } from './ActivosTabla';

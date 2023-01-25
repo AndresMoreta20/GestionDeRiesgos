@@ -1,3 +1,6 @@
+
+export { default as NuevoVulnerabilidad } from './NuevoVulnerabilidad';
+export { default as EditarAmenaza } from './EditarAmenaza';
 export { default as NuevoAmenaza } from './NuevoAmenaza';
 export { default as NuevoRiesgo } from './NuevoRiesgo';
 export { default as EditarActivo } from './EditarActivo';

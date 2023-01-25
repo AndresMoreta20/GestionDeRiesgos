@@ -1,50 +1,54 @@
-import React from 'react';
-import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
-import { useNavigate} from 'react-router-dom';
-import { activosData, activosGrid } from '../data/dummy';
-import { Header } from '../components';
+import React, {useState } from 'react';
+import { Header, VulnerabilidadTabla } from '../components';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../config/client';
 
-function Vulnerabilidades() {
-  const navigate = useNavigate();
-  const selectionsettings = { persistSelection: true };
-  const toolbarOptions = ['Delete'];
-  const editing = { allowDeleting: true, allowEditing: true };
 
+const Vulnerabilidades = () => {
+ 
+  const vulnerabilidadesGrid = [{field:'codigo', headerName:'Codigo', width:'70'},
+  {field:'especificacion', headerName:'Especificacion', width:'100'},
+  {field:'ambitos', headerName:'Ambito', width:'100'},
+  {field:'calificacion', headerName:'Calificacion', width:'100'},
+  {field:'severidad', headerName:'Severidad', width:'100'}]
+
+  const [vulnerabilidadesList, setVulnerabilidadesList] = useState([]);
+   
+  const cargarVulnerabilidades = async () => {
+    const querySnapshot = await getDocs(collection(db, 'Vulnerabilidades'));
+    var vulnerabilidadesL = [];
+    
+    querySnapshot.docs.forEach(doc => {
+      var tmpData  = doc.data();
+      var key = doc.id;
+      vulnerabilidadesL.push({key,
+        ...tmpData});
+    });
+  
+    setVulnerabilidadesList(vulnerabilidadesL);
+    console.log(vulnerabilidadesList);
+  }
+ 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Page" title="Vulnerabilidades" />
+      <Header category="Página" title="Vulnerabilidades " />
       <button type='button'
-              className='text-2x1 p-2
+                className='text-2x1 p-2
           hover:drop-shadow-xl
           hover:bg-light-gray
           text-white'
-              style={{
-                background: 'purple',
-                borderRadius: ''
-              }}
-              onClick={()=>{navigate('/NuevoActivo')}}
-              >
-              Agregar
+                style={{
+                    background: 'green',
+                    borderRadius: ''
+                }}
+                onClick={() => { cargarVulnerabilidades() }}>
+                Actualizar
             </button>
-      <GridComponent
-        dataSource={activosData}
-        enableHover={false}
-        allowPaging
-        pageSettings={{ pageCount: 5 }}
-        selectionSettings={selectionsettings}
-        toolbar={toolbarOptions}
-        editSettings={editing}
-        allowSorting
-      >
-        <ColumnsDirective>
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          {activosGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
-        </ColumnsDirective>
-        <Inject services={[Page, Selection, Toolbar, Edit, Sort, Filter]} />
-      </GridComponent>
+            <VulnerabilidadTabla data={vulnerabilidadesList} columns = {vulnerabilidadesGrid} Tabla='Vulnerabilidades' crear='NuevoVulnerabilidad'/>
       
+
     </div>
   );
-}
+};
 
-export default Vulnerabilidades
+export default Vulnerabilidades;
