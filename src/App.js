@@ -4,7 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Sidebar } from './components';
-import {Activos, Usuarios, Principal, Locaciones, Calendar, ColorPicker, Kanban, Area, Bar, ColorMapping, Financial, Line, Pie, Pyramid, Stacked, NuevoActivo, Vulnerabilidades, Controles, Riesgos, Amenazas, EditarActivo, NuevoRiesgo, NuevoAmenaza, EditarAmenaza, NuevoVulnerabilidad} from './pages';
+import {Activos, Usuarios, Principal, Locaciones, Calendar, ColorPicker, Kanban, Area, Bar, ColorMapping, Financial, Line, Pie, Pyramid, Stacked, NuevoActivo, Vulnerabilidades, Controles, Riesgos, Amenazas, EditarActivo, NuevoRiesgo, NuevoAmenaza, EditarAmenaza, NuevoVulnerabilidad, NuevoControl} from './pages';
 import { useStateContext } from './contexts/ContextProvider';
 
 import './App.css';
@@ -74,6 +74,7 @@ const {activeMenu} = useStateContext();
             <Route path='/editarAmenaza' element={<EditarAmenaza />} />
             <Route path='/nuevoVulnerabilidad' element={<NuevoVulnerabilidad />} />
             <Route path='/vulnerabilidades' element={<Vulnerabilidades/>} />
+            <Route path='/nuevoControl' element={<NuevoControl/>} />
 
             <Route path="/kanban" element={<Kanban />} />
             {/* <Route path="/editor" element={<Editor />} /> */}

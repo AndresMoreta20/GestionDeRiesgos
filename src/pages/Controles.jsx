@@ -1,51 +1,57 @@
-import React from 'react';
-import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
-import { useNavigate} from 'react-router-dom';
-import { activosData, activosGrid } from '../data/dummy';
-import { Header } from '../components';
+import React, { useState } from 'react';
+import { Header, ControlesTabla } from '../components';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../config/client';
 
 
-function Controles() {
-  const navigate = useNavigate();
-  const selectionsettings = { persistSelection: true };
-  const toolbarOptions = ['Delete'];
-  const editing = { allowDeleting: true, allowEditing: true };
+const Controles = () => {
+
+  const controlesGrid = [{ field: 'codigo', headerName: 'Codigo', width: '70' },
+  { field: 'control', headerName: 'Control', width: '100' },
+  { field: 'contexto', headerName: 'Contexto', width: '100' },
+  { field: 'discusion', headerName: 'Discusion', width: '100' },
+  { field: 'tipoC', headerName: 'Tipo de control', width: '100' },
+  { field: 'riesgo', headerName: 'Riesgo', width:'100'}]
+
+  const [controlesList, setControlesList] = useState([]);
+
+  const cargarControles = async () => {
+    const querySnapshot = await getDocs(collection(db, 'Controles'));
+    var controlesL = [];
+
+    querySnapshot.docs.forEach(doc => {
+      var tmpData = doc.data();
+      var key = doc.id;
+      controlesL.push({
+        key,
+        ...tmpData
+      });
+    });
+
+    setControlesList(controlesL);
+    console.log(controlesList);
+  }
 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Page" title="Controles" />
+      <Header category="Página" title="Controles " />
       <button type='button'
-              className='text-2x1 p-2
+        className='text-2x1 p-2
           hover:drop-shadow-xl
           hover:bg-light-gray
           text-white'
-              style={{
-                background: 'purple',
-                borderRadius: ''
-              }}
-              onClick={()=>{navigate('/NuevoActivo')}}
-              >
-              Agregar
-            </button>
-      <GridComponent
-        dataSource={activosData}
-        enableHover={false}
-        allowPaging
-        pageSettings={{ pageCount: 5 }}
-        selectionSettings={selectionsettings}
-        toolbar={toolbarOptions}
-        editSettings={editing}
-        allowSorting
-      >
-        <ColumnsDirective>
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          {activosGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
-        </ColumnsDirective>
-        <Inject services={[Page, Selection, Toolbar, Edit, Sort, Filter]} />
-      </GridComponent>
-      
+        style={{
+          background: 'green',
+          borderRadius: ''
+        }}
+        onClick={() => { cargarControles() }}>
+        Actualizar
+      </button>
+      <ControlesTabla data={controlesList} columns={controlesGrid} />
+
+
     </div>
   );
-}
+};
 
-export default Controles
+export default Controles;

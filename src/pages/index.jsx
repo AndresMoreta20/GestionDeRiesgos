@@ -1,4 +1,4 @@
-
+export { default as NuevoControl } from './NuevoControl';
 export { default as NuevoVulnerabilidad } from './NuevoVulnerabilidad';
 export { default as EditarAmenaza } from './EditarAmenaza';
 export { default as NuevoAmenaza } from './NuevoAmenaza';

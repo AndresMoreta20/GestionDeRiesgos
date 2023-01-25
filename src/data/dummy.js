@@ -1,6 +1,6 @@
 import React from 'react';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { FiShoppingBag, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
+//import { AiOutlineShoppingCart } from 'react-icons/ai';
+import {  FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
 import {  BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 //import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
@@ -582,7 +582,7 @@ export const links = [
     links: [
       {
         name: 'principal',
-        icon: <FiShoppingBag />,
+        icon: <IoMdContacts />,
       },
     ],
   },
@@ -592,7 +592,7 @@ export const links = [
     links: [
       {
         name: 'activos',
-        icon: <AiOutlineShoppingCart />,
+        icon: <IoMdContacts />,
       },
      /* {
         name: 'usuarios',
