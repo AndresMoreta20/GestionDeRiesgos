@@ -63,24 +63,24 @@ const NuevoActivo = () => {
 
 
     return (
-        <div className="w-80% m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+        <div className="w-80% m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl" style={{ width: '200em' }}>
             <Header category="Page" title="Agregar activo" />
 
             <form onSubmit={() => { handleSubmitActivo() }}>
                 <label>Nombre
-                    <input
+                <br /><input
                         className='w-96 m-200 border-solid border-sky-400 border-2'
                         value={nombreS}
                         type="text" onChange={event => setNombreS(event.target.value)
                         }></input>
                 </label>
-                <br />
+                <br /><br />
                 <label>Descripción
-                    <input
+                <br /><input
                         className='w-96 m-200 border-solid border-sky-400 border-2'
                         value={descripcionS}
                         type="text" onChange={e => setDescripcionS(e.target.value)}></input>
-                </label><br />
+                </label><br /><br />
                 <label>Categoría <br />
                     <select defaultValue={categorias[0]} id='categoriaSelect' onChange={e => setCategoriaS(e.target.value)}>
                         <option value={categorias[0]}>{categorias[0]}</option>
@@ -90,7 +90,7 @@ const NuevoActivo = () => {
                         <option value={categorias[4]}>{categorias[4]}</option>
                         <option value={categorias[5]}>{categorias[5]}</option>
                     </select>
-                </label><br />
+                </label><br /><br />
                 <label>Etiqueta <br />
                     <select defaultValue={categorias[0]} id='etiquetaSelect' onChange={e => setEtiquetaS(e.target.value)}>
                         <option value={etiquetas[0]}>{etiquetas[0]}</option>
@@ -106,7 +106,7 @@ const NuevoActivo = () => {
                         <option value={etiquetas[10]}>{etiquetas[10]}</option>
 
                     </select>
-                </label><br />
+                </label><br /><br />
 
                 <label>Clasificación <br />
                     <select defaultValue={clasificaciones[0]} id='clasificacionSelect' onChange={e => setClasificacionS(e.target.value)}>
@@ -115,18 +115,18 @@ const NuevoActivo = () => {
                         <option value={clasificaciones[2]}>{clasificaciones[2]}</option>
                     </select>
 
-                </label><br />
+                </label><br /><br />
                 <label>Confidencialidad</label>
-                <input
+                <br /><input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
-                    type="number" onChange={e => setValor1S(parseFloat(e.target.value))}></input><br />
+                    type="number" onChange={e => setValor1S(parseFloat(e.target.value))}></input><br /><br />
                 <label>
                     Integridad</label>
-                <input
+                    <br /><input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
-                    type="number" onChange={e => setValor2S(parseFloat(e.target.value))}></input><br />
+                    type="number" onChange={e => setValor2S(parseFloat(e.target.value))}></input><br /><br />
                 <label>Disponibilidad</label>
-                <input
+                <br /><input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
                     type="number" onChange={e => setValor3S(parseFloat(e.target.value))}></input><br />
                 <input

@@ -594,10 +594,10 @@ export const links = [
         name: 'activos',
         icon: <AiOutlineShoppingCart />,
       },
-      {
+     /* {
         name: 'usuarios',
         icon: <IoMdContacts />,
-      },
+      },*/
       {
         name: 'vulnerabilidades',
         icon: <IoMdContacts />,
@@ -613,12 +613,7 @@ export const links = [
       {
         name: 'riesgos',
         icon: <IoMdContacts />,
-      },
-      
-      {
-        name: 'locaciones',
-        icon: <RiContactsLine />,
-      },
+      }
     ],
   }
   /*{

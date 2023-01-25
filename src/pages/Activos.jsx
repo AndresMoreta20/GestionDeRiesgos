@@ -18,6 +18,7 @@ const Activos = () => {
   {field:'descripcion', headerName:'Descripción', width:'200'},
   {field:'categoria', headerName:'Categoría', width:'100'},
   {field:'etiqueta', headerName:'Etiqueta', width:'100'},
+  {field:'clasificacion', headerName:'Clasificacion', width:'100'},
   {field:'nivel', headerName:'Nivel', width:'100'},
   {field:'valorGlobal', headerName:'Valor Global', width:'100'}]
   //const navigate = useNavigate();
