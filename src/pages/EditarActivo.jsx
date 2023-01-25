@@ -4,7 +4,7 @@ import { useLocation, useNavigate} from 'react-router-dom';
 //import { activosData } from '../data/dummy';
 import { Header } from '../components';
 
-import { addDoc, collection } from 'firebase/firestore';
+import { setDoc, doc } from 'firebase/firestore';
 import { db } from '../config/client'
 
 
@@ -13,7 +13,7 @@ const EditarActivo = () => {
     const location = useLocation();
     const data = location.state.data;
     console.log(data);
-    console.log(data.nombre)
+    console.log(data.key);
     const navigate = useNavigate();
     /*const selectionsettings = { persistSelection: true };
     const toolbarOptions = ['Delete'];
@@ -46,9 +46,10 @@ const EditarActivo = () => {
         } else {
             catNivel = nivel[0]
         }
-    
+   
        let code = Math.floor(Math.random() * 100);
-        const res = await addDoc(collection(db, "Activos"), {
+        /*
+        const res = await updateDoc(collection(db, "Activos", data.key), {
             "codigo": categoriaS + code,
             "categoria":categoriaS,
             "clasificacion":clasificacionS,
@@ -60,7 +61,20 @@ const EditarActivo = () => {
             "integridad": valor2S,
             "disponibilidad": valor3S,
             "valorGlobal":valorGlobal
-         });
+         });*/
+         const res = await setDoc(doc(db, "Activos", data.key), {
+            codigo: categoriaS + code,
+            categoria:categoriaS,
+            clasificacion:clasificacionS,
+            descripcion:descripcionS,
+            etiqueta:etiquetaS,
+            nivel:catNivel,
+            nombre:nombreS,
+            confidencialidad: valor1S,
+            integridad: valor2S,
+            disponibilidad: valor3S,
+            valorGlobal:valorGlobal
+          });
          console.log(res);
          navigate('/Activos')
     }
@@ -125,17 +139,30 @@ const EditarActivo = () => {
                 <label>Confidencialidad</label>
                 <input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
-                    type="number" value={data.confidencialidad} onChange={e => setValor1S(parseFloat(e.target.value))}></input><br />
+                    type="number" defaultValue={data.confidencialidad} onChange={e => setValor1S(parseFloat(e.target.value))}></input><br />
                 <label>
                     Integridad</label>
                 <input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
-                    type="number" value={data.integridad} onChange={e => setValor2S(parseFloat(e.target.value))}></input><br />
+                    type="number" defaultValue={data.integridad} onChange={e => setValor2S(parseFloat(e.target.value))}></input><br />
                 <label>Disponibilidad</label>
                 <input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
-                    type="number" value={data.integridad} onChange={e => setValor3S(parseFloat(e.target.value))}></input><br />
-               
+                    type="number" defaultValue={data.integridad} onChange={e => setValor3S(parseFloat(e.target.value))}></input><br />
+                <input
+                    value="Guardar"
+                    type="button"
+                    className='
+                    mt-8
+                    text-2x1 p-2
+                    hover:drop-shadow-xl    
+                  hover:bg-light-gray
+                  text-white'
+                    style={{
+                        background: 'purple',
+                        borderRadius: ''
+                    }}
+                    onClick={() => { handleSubmitActivo() }}></input>
 
             </form>
 

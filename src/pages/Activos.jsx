@@ -59,7 +59,7 @@ const Activos = () => {
           hover:bg-light-gray
           text-white'
                 style={{
-                    background: 'blue',
+                    background: 'green',
                     borderRadius: ''
                 }}
                 onClick={() => { cargarActivos() }}>

@@ -41,7 +41,7 @@ export default function ActivosTabla(props) {
                     background: 'blue',
                     borderRadius: ''
                 }}
-                onClick={() => { navigate('/EditarActivo', { state: { data: selectionModel.row } }) }}>
+                onClick={() => { selectionModel !=null ? navigate('/EditarActivo', { state: { data: selectionModel.row } }) : console.log("error")}}>
                 Editar
             </button>
 
@@ -54,7 +54,7 @@ export default function ActivosTabla(props) {
                     background: 'red',
                     borderRadius: ''
                 }}
-                onClick={() => { eliminarActivos() }}>
+                onClick={() => { selectionModel != null ? eliminarActivos(): console.log("error") }}>
                 Eliminar
             </button>
 
