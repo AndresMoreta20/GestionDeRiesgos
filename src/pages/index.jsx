@@ -1,3 +1,4 @@
+export { default as NuevoAmenaza } from './NuevoAmenaza';
 export { default as NuevoRiesgo } from './NuevoRiesgo';
 export { default as EditarActivo } from './EditarActivo';
 export { default as Amenazas } from './Amenazas';
