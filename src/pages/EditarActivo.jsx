@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-//import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter, registerEventHandlers } from '@syncfusion/ej2-react-grids';
-//import { activosData } from '../data/dummy';
 import { Header } from '../components';
 
 import { setDoc, doc } from 'firebase/firestore';
 import { db } from '../config/client'
 
 
+import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import { DataGrid } from '@mui/x-data-grid';
+
+
+const useStyles = makeStyles({
+    selected: {
+        backgroundColor: '#eee',
+    },
+});
+
 const EditarActivo = () => {
 
     const location = useLocation();
     const data = location.state.data;
-    console.log(data);
-    console.log(data.key);
+    let dataVul = data.vulnerabilidades;
+    //console.log(data);
+    // console.log(data.key);
     const navigate = useNavigate();
     /*const selectionsettings = { persistSelection: true };
     const toolbarOptions = ['Delete'];
@@ -34,8 +46,41 @@ const EditarActivo = () => {
     // const [valorTotalS, setValorTotalS] = useState(0.1);
     //
 
-    const handleSubmitActivo = async () => {
+    //////////////////////////
 
+    const classes = useStyles();
+    const [selected, setSelected] = useState([]);
+
+    const handleToggle = (value) => () => {
+        const currentIndex = selected.indexOf(value);
+        const newSelected = [...selected];
+
+        if (currentIndex === -1) {
+            newSelected.push(value);
+        } else {
+            newSelected.splice(currentIndex, 1);
+        }
+
+        setSelected(newSelected);
+        console.log(selected);
+    };
+
+    const handleVulnerabilidades = () => {
+
+        for (var i; i < selected.length; i++) {
+            /* if(dataVul.includes(selected[i])){
+                
+             } else {
+                 dataVul.push(selected[i]);
+             }*/
+            dataVul.push(selected[i]);
+        }
+        console.log(dataVul);
+    }
+
+
+    /////////////////////////////
+    const handleSubmitActivo = async () => {
         //setValorTotalS ((valor1S+ valor2S + valor3S)/3.0);
         let valorGlobal = (parseFloat(valor1S) + parseFloat(valor2S) * 1.0 + parseFloat(valor3S) * 1.0) / 3.0
         let catNivel = ""
@@ -48,20 +93,7 @@ const EditarActivo = () => {
         }
 
         let code = Math.floor(Math.random() * 100);
-        /*
-        const res = await updateDoc(collection(db, "Activos", data.key), {
-            "codigo": categoriaS + code,
-            "categoria":categoriaS,
-            "clasificacion":clasificacionS,
-            "descripcion":descripcionS,
-            "etiqueta":etiquetaS,
-            "nivel":catNivel,
-            "nombre":nombreS,
-            "confidencialidad": valor1S,
-            "integridad": valor2S,
-            "disponibilidad": valor3S,
-            "valorGlobal":valorGlobal
-         });*/
+
         const res = await setDoc(doc(db, "Activos", data.key), {
             codigo: categoriaS + code,
             categoria: categoriaS,
@@ -73,12 +105,40 @@ const EditarActivo = () => {
             confidencialidad: valor1S,
             integridad: valor2S,
             disponibilidad: valor3S,
-            valorGlobal: valorGlobal
+            valorGlobal: valorGlobal,
+            vulnerabilidades: vulne
         });
-        console.log(res);
+        //console.log(res);
         navigate('/Activos')
     }
 
+
+    const [vulDat, setVulDat] = useState();
+    let newVul = [
+        { id: 1, nombre: 'infraestructura' },
+        { id: 2, nombre: 'mantenimiento' }]
+
+
+    const [vulGri, setVulGri] = useState([{ field: 'nombre', headerName: 'Nombre', width: '100' }])
+
+    const [vulne, setVulne] = useState(data.vulnerabilidades);
+    const changeVulne = (nve) => {
+        let nv = vulne;
+        nv.push(nve);
+        setVulne(nv);
+    }
+
+
+    const handleVul = (selVul) => {
+        setVulDat(selVul.nombre)
+    }
+    const handleButtonVul = () => {
+        //changeVulne(vulDat);
+        vulne.push(vulDat)
+        console.log(vulne);
+        newVul = newVul.filter(item => item !== vulDat);
+        console.log(newVul);
+    }
 
     return (
         <div className="w-80% m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl" style={{ width: '200em' }}>
@@ -168,10 +228,53 @@ const EditarActivo = () => {
                     }}
                     onClick={() => { handleSubmitActivo() }}></input>
 
-            </form>
+            </form> <br /><br/>
+            <Header category="" title="Administrar vulnerabilidades" />
+            <div>
+                <h2>Vulnerabilidades de este activo</h2>
+                <List>
+                    {data.vulnerabilidades.map((item) => (
+                        <ListItem
+                            key={item}>
+                            <ListItemText primary={item} />
+                        </ListItem>
+                    ))}
+                </List>
+            </div>
+            <br /> <br />
+           
+            <div>
+                <h2>Lista de vulnerabilidades</h2>
+                <div style={{ height: 400, width: '40em' }}>
+                    <DataGrid
+                        rows={newVul}
+                        columns={[{ field: 'nombre', headerName: 'Nombre', width: '200' }]}
+                        pageSize={5}
+                        rowsPerPageOptions={[5]}
+                        onRowClick={(rowData) => {
+                            handleVul(rowData.row);
+                        }}
+                        getRowId={(row) => row.id}
+                    />
+
+                </div>
 
 
+                <button type='button'
+                    className='text-2x1 p-2
+                    hover:drop-shadow-xl
+                    hover:bg-light-gray
+                    text-white'
+                    style={{
+                        background: 'red',
+                        borderRadius: ''
+                    }}
+                    onClick={() => { handleButtonVul() }}>
+                    Agregar
+                </button>
+            </div>
         </div>
+
     );
 };
 
