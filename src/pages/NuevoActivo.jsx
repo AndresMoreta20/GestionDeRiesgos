@@ -1,5 +1,5 @@
-import React, {useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 //import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter, registerEventHandlers } from '@syncfusion/ej2-react-grids';
 //import { activosData } from '../data/dummy';
 import { Header } from '../components';
@@ -15,7 +15,7 @@ const NuevoActivo = () => {
     const toolbarOptions = ['Delete'];
     const editing = { allowDeleting: true, allowEditing: true };*/
     const categorias = ['Doc', 'Per', 'Ser', 'Cli', 'AM', 'Sup'];
-    const etiquetas = ['Con', 'Lis','SerP', 'SerPV', 'JA', 'EAI', 'EAE', 'IA', 'PE', 'HaW', 'SoW'];
+    const etiquetas = ['Con', 'Lis', 'SerP', 'SerPV', 'JA', 'EAI', 'EAE', 'IA', 'PE', 'HaW', 'SoW'];
     const clasificaciones = ['Confidencial', 'Restringido', 'Publico'];
     const nivel = ['Bajo', 'Medio', 'Alto'];
 
@@ -27,46 +27,46 @@ const NuevoActivo = () => {
     const [valor1S, setValor1S] = useState(0.1);
     const [valor2S, setValor2S] = useState(0.1);
     const [valor3S, setValor3S] = useState(0.1);
-   // const [valorTotalS, setValorTotalS] = useState(0.1);
-   //
- 
-    const handleSubmitActivo = async () =>{
+    // const [valorTotalS, setValorTotalS] = useState(0.1);
+    //
 
-       //setValorTotalS ((valor1S+ valor2S + valor3S)/3.0);
-       let valorGlobal = (parseFloat(valor1S)+ parseFloat(valor2S)*1.0 + parseFloat(valor3S)*1.0)/3.0
-       let catNivel = "" 
-       if(valorGlobal > 2.4){
+    const handleSubmitActivo = async () => {
+
+        //setValorTotalS ((valor1S+ valor2S + valor3S)/3.0);
+        let valorGlobal = (parseFloat(valor1S) + parseFloat(valor2S) * 1.0 + parseFloat(valor3S) * 1.0) / 3.0
+        let catNivel = ""
+        if (valorGlobal > 2.4) {
             catNivel = nivel[2]
-        } else if (valorGlobal > 1.4){
+        } else if (valorGlobal > 1.4) {
             catNivel = nivel[1]
         } else {
             catNivel = nivel[0]
         }
-    
-       let code = Math.floor(Math.random() * 100);
+
+        let code = Math.floor(Math.random() * 100);
         const res = await addDoc(collection(db, "Activos"), {
             "codigo": categoriaS + code,
-            "categoria":categoriaS,
-            "clasificacion":clasificacionS,
-            "descripcion":descripcionS,
-            "etiqueta":etiquetaS,
-            "nivel":catNivel,
-            "nombre":nombreS,
+            "categoria": categoriaS,
+            "clasificacion": clasificacionS,
+            "descripcion": descripcionS,
+            "etiqueta": etiquetaS,
+            "nivel": catNivel,
+            "nombre": nombreS,
             "confidencialidad": valor1S,
             "integridad": valor2S,
             "disponibilidad": valor3S,
-            "valorGlobal":valorGlobal
-         });
-         console.log(res);
-         navigate('/Activos')
+            "valorGlobal": valorGlobal
+        });
+        console.log(res);
+        navigate('/Activos')
     }
 
 
     return (
         <div className="w-80% m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
             <Header category="Page" title="Agregar activo" />
-        
-            <form onSubmit={()=>{handleSubmitActivo()}}>
+
+            <form onSubmit={() => { handleSubmitActivo() }}>
                 <label>Nombre
                     <input
                         className='w-96 m-200 border-solid border-sky-400 border-2'
@@ -104,15 +104,15 @@ const NuevoActivo = () => {
                         <option value={etiquetas[8]}>{etiquetas[8]}</option>
                         <option value={etiquetas[9]}>{etiquetas[9]}</option>
                         <option value={etiquetas[10]}>{etiquetas[10]}</option>
-                              
+
                     </select>
                 </label><br />
 
                 <label>Clasificación <br />
                     <select defaultValue={clasificaciones[0]} id='clasificacionSelect' onChange={e => setClasificacionS(e.target.value)}>
-                    <option value={clasificaciones[0]}>{clasificaciones[0]}</option>
-                    <option value={clasificaciones[1]}>{clasificaciones[1]}</option>
-                    <option value={clasificaciones[2]}>{clasificaciones[2]}</option>
+                        <option value={clasificaciones[0]}>{clasificaciones[0]}</option>
+                        <option value={clasificaciones[1]}>{clasificaciones[1]}</option>
+                        <option value={clasificaciones[2]}>{clasificaciones[2]}</option>
                     </select>
 
                 </label><br />
@@ -129,10 +129,10 @@ const NuevoActivo = () => {
                 <input
                     className='w-96 m-200 border-solid border-sky-400 border-2'
                     type="number" onChange={e => setValor3S(parseFloat(e.target.value))}></input><br />
-                <input  
-                value="Enviar"
-                type="button"
-                className='
+                <input
+                    value="Enviar"
+                    type="button"
+                    className='
                     mt-8
                     text-2x1 p-2
                     hover:drop-shadow-xl    
@@ -142,7 +142,7 @@ const NuevoActivo = () => {
                         background: 'purple',
                         borderRadius: ''
                     }}
-                    onClick={()=>{handleSubmitActivo()}}></input>
+                    onClick={() => { handleSubmitActivo() }}></input>
 
             </form>
 
