@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 //import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
-import { useNavigate } from 'react-router-dom';
+
 import { collection, getDocs } from 'firebase/firestore';
 //import { useEffect } from 'react';
 import { db } from '../config/client';
