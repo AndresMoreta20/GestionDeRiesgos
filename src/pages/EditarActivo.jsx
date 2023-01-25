@@ -6,16 +6,21 @@ import { setDoc, doc } from 'firebase/firestore';
 import { db } from '../config/client'
 
 
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { DataGrid } from '@mui/x-data-grid';
 
 
+
 const EditarActivo = () => {
 
     const location = useLocation();
     const data = location.state.data;
+    const [dataVul, ] = useState(data.vulnerabilidades != null ? data.vulnerabilidades: []);
+   // let dataVul = [];
+    //data.vulnerabilidades != null ?  dataVul= data.vulnerabilidades : dataVul = [];
     //console.log(data);
     // console.log(data.key);
     const navigate = useNavigate();
@@ -40,7 +45,22 @@ const EditarActivo = () => {
 
     //////////////////////////
 
-    
+    const [selected, ] = useState([]);
+
+   
+
+    const handleVulnerabilidades = () => {
+
+        for (var i; i < selected.length; i++) {
+            /* if(dataVul.includes(selected[i])){
+                
+             } else {
+                 dataVul.push(selected[i]);
+             }*/
+            dataVul.push(selected[i]);
+        }
+        console.log(dataVul);
+    }
 
 
     /////////////////////////////
@@ -70,7 +90,7 @@ const EditarActivo = () => {
             integridad: valor2S,
             disponibilidad: valor3S,
             valorGlobal: valorGlobal,
-            vulnerabilidades: vulne
+            vulnerabilidades: dataVul
         });
         console.log(res);
         navigate('/Activos')
@@ -83,18 +103,22 @@ const EditarActivo = () => {
         { id: 2, nombre: 'mantenimiento' }]
 
 
-    //const [vulGri, setVulGri] = useState([{ field: 'nombre', headerName: 'Nombre', width: '100' }])
 
-    const [vulne, ] = useState(data.vulnerabilidades);
-   
+    const [vulne, setVulne] = useState(data.vulnerabilidades);
+    const changeVulne = (nve) => {
+        let nv = vulne;
+        nv.push(nve);
+        setVulne(nv);
+    }
+
 
     const handleVul = (selVul) => {
         setVulDat(selVul.nombre)
     }
     const handleButtonVul = () => {
         //changeVulne(vulDat);
-        vulne.push(vulDat)
-        console.log(vulne);
+        dataVul.push(vulDat)
+        console.log(dataVul);
         newVul = newVul.filter(item => item !== vulDat);
         console.log(newVul);
     }
@@ -192,7 +216,7 @@ const EditarActivo = () => {
             <div>
                 <h2>Vulnerabilidades de este activo</h2>
                 <List>
-                    {data.vulnerabilidades.map((item) => (
+                    {dataVul.map((item) => (
                         <ListItem
                             key={item}>
                             <ListItemText primary={item} />
