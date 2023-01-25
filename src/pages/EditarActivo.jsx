@@ -19,14 +19,9 @@ const EditarActivo = () => {
     const location = useLocation();
     const data = location.state.data;
     const [dataVul, ] = useState(data.vulnerabilidades != null ? data.vulnerabilidades: []);
-   // let dataVul = [];
-    //data.vulnerabilidades != null ?  dataVul= data.vulnerabilidades : dataVul = [];
-    //console.log(data);
-    // console.log(data.key);
+
     const navigate = useNavigate();
-    /*const selectionsettings = { persistSelection: true };
-    const toolbarOptions = ['Delete'];
-    const editing = { allowDeleting: true, allowEditing: true };*/
+
     const categorias = ['Doc', 'Per', 'Ser', 'Cli', 'AM', 'Sup'];
     const etiquetas = ['Con', 'Lis', 'SerP', 'SerPV', 'JA', 'EAI', 'EAE', 'IA', 'PE', 'HaW', 'SoW'];
     const clasificaciones = ['Confidencial', 'Restringido', 'Publico'];
@@ -40,7 +35,6 @@ const EditarActivo = () => {
     const [valor1S, setValor1S] = useState(data.confidencialidad);
     const [valor2S, setValor2S] = useState(data.integridad);
     const [valor3S, setValor3S] = useState(data.disponibilidad);
-    // const [valorTotalS, setValorTotalS] = useState(0.1);
     //
 
     //////////////////////////
