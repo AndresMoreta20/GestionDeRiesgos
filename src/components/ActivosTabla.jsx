@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { doc, deleteDoc } from "firebase/firestore";
 import { DataGrid } from '@mui/x-data-grid';
@@ -42,7 +42,7 @@ export default function ActivosTabla(props) {
                     borderRadius: ''
                 }}
                 onClick={() => { navigate('/EditarActivo', { state: { data: selectionModel.row } }) }}>
-                Actualizar
+                Editar
             </button>
 
             <button type='button'
