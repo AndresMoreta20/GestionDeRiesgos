@@ -13,17 +13,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { DataGrid } from '@mui/x-data-grid';
 
 
-const useStyles = makeStyles({
-    selected: {
-        backgroundColor: '#eee',
-    },
-});
-
 const EditarActivo = () => {
 
     const location = useLocation();
     const data = location.state.data;
-    let dataVul = data.vulnerabilidades;
     //console.log(data);
     // console.log(data.key);
     const navigate = useNavigate();
@@ -48,35 +41,7 @@ const EditarActivo = () => {
 
     //////////////////////////
 
-    const classes = useStyles();
-    const [selected, setSelected] = useState([]);
-
-    const handleToggle = (value) => () => {
-        const currentIndex = selected.indexOf(value);
-        const newSelected = [...selected];
-
-        if (currentIndex === -1) {
-            newSelected.push(value);
-        } else {
-            newSelected.splice(currentIndex, 1);
-        }
-
-        setSelected(newSelected);
-        console.log(selected);
-    };
-
-    const handleVulnerabilidades = () => {
-
-        for (var i; i < selected.length; i++) {
-            /* if(dataVul.includes(selected[i])){
-                
-             } else {
-                 dataVul.push(selected[i]);
-             }*/
-            dataVul.push(selected[i]);
-        }
-        console.log(dataVul);
-    }
+    
 
 
     /////////////////////////////
@@ -108,7 +73,7 @@ const EditarActivo = () => {
             valorGlobal: valorGlobal,
             vulnerabilidades: vulne
         });
-        //console.log(res);
+        console.log(res);
         navigate('/Activos')
     }
 
@@ -119,15 +84,10 @@ const EditarActivo = () => {
         { id: 2, nombre: 'mantenimiento' }]
 
 
-    const [vulGri, setVulGri] = useState([{ field: 'nombre', headerName: 'Nombre', width: '100' }])
+    //const [vulGri, setVulGri] = useState([{ field: 'nombre', headerName: 'Nombre', width: '100' }])
 
-    const [vulne, setVulne] = useState(data.vulnerabilidades);
-    const changeVulne = (nve) => {
-        let nv = vulne;
-        nv.push(nve);
-        setVulne(nv);
-    }
-
+    const [vulne, ] = useState(data.vulnerabilidades);
+   
 
     const handleVul = (selVul) => {
         setVulDat(selVul.nombre)
