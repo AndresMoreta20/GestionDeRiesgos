@@ -45,22 +45,7 @@ const EditarActivo = () => {
 
     //////////////////////////
 
-    const [selected, ] = useState([]);
-
-   
-
-    const handleVulnerabilidades = () => {
-
-        for (var i; i < selected.length; i++) {
-            /* if(dataVul.includes(selected[i])){
-                
-             } else {
-                 dataVul.push(selected[i]);
-             }*/
-            dataVul.push(selected[i]);
-        }
-        console.log(dataVul);
-    }
+    
 
 
     /////////////////////////////
@@ -104,12 +89,8 @@ const EditarActivo = () => {
 
 
 
-    const [vulne, setVulne] = useState(data.vulnerabilidades);
-    const changeVulne = (nve) => {
-        let nv = vulne;
-        nv.push(nve);
-        setVulne(nv);
-    }
+  //  const [vulne, setVulne] = useState(data.vulnerabilidades);
+   
 
 
     const handleVul = (selVul) => {

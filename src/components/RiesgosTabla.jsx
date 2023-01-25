@@ -49,7 +49,7 @@ export default function RiesgosTabla(props) {
                     background: 'blue',
                     borderRadius: ''
                 }}
-                onClick={() => { selectionModel !=null ? navigate('/EditarRiesgo', { state: { data: selectionModel.row } }) : console.log("error")}}>
+                onClick={() => { }}>
                 Editar
             </button>
 
