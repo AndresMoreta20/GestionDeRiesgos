@@ -147,6 +147,7 @@ const NuevoRiesgo = (props) => {
             riesgo: riesgoS,
             vulnerabilidad: vulneS
         });
+        console.log(res);
 
         navigate('/Riesgos')
     }

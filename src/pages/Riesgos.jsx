@@ -19,10 +19,7 @@ function Riesgos() {
     { field: 'probabilidad', headerName: 'Probabilidad', width: '150' }]
 
 
-  const navigate = useNavigate();
-  const selectionsettings = { persistSelection: true };
-  const toolbarOptions = ['Delete'];
-  const editing = { allowDeleting: true, allowEditing: true };
+
 
   const [riesgosList, setRiesgosList] = useState([]);
 
