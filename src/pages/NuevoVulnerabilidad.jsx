@@ -48,7 +48,7 @@ const NuevoVulnerabilidad = () => {
       "amenazas": amenazaS,
       "calificacion": calificacionS,
       "especificacion": especificacionS,
-      "severidad": severidad,
+      "severidad": severidadS,
     });
     console.log(res);
     navigate('/Vulnerabilidades')
