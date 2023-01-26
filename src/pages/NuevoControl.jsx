@@ -10,7 +10,7 @@ const NuevoControl = () => {
 
     const location = useLocation();
     const data = location.state.data;
-    console.log(data);
+   // console.log(data);
     const navigate = useNavigate();
     const TipoC = ['Prevenir', 'Detectar', 'Corregir', 'Disuadir', 'Recuperar', 'Compensar'];
 
@@ -31,7 +31,7 @@ const NuevoControl = () => {
             "contexto":contextoS,
             "discusion":discusionS,
             "tipoC":TipoCS,
-            "riesgo":data.riesgo
+            "riesgo":data != null ?data.riesgo: ""
             
          });
          console.log(res);
@@ -42,7 +42,7 @@ const NuevoControl = () => {
     return (
         <div className="w-80% m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
             <Header category="Page" title="Agregar Control" />
-            <label >{data.riesgo}</label>
+            <label >{data != null ?data.riesgo: "riesgo"}</label>
             <form onSubmit={()=>{handleSubmitControl()}}>
                 <label>Control
                     <input

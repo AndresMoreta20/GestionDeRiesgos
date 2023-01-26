@@ -28,7 +28,7 @@ export default function ActivosTabla(props) {
                     background: 'purple',
                     borderRadius: ''
                 }}
-                onClick={() => { navigate('/NuevoRiesgo') }}>
+                onClick={() => { navigate('/NuevoActivo') }}>
                 Agregar
             </button>
 

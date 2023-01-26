@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { doc, deleteDoc } from "firebase/firestore";
 import { DataGrid } from '@mui/x-data-grid';
 import { db } from '../config/client';
@@ -17,21 +17,9 @@ export default function ControlesTabla(props) {
     }
 
 
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     return (
         <div style={{ height: 400, width: '70em' }}>
-            <button type='button'
-                className='text-2x1 p-2
-          hover:drop-shadow-xl
-          hover:bg-light-gray
-          text-white'
-                style={{
-                    background: 'purple',
-                    borderRadius: ''
-                }}
-                onClick={() => { navigate('/NuevoControl') }}>
-                Agregar
-            </button>
 
        
             <button type='button'
