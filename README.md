@@ -1,3 +1,10 @@
+# Overview
+Our application, "Gestión de Riesgos," focuses on providing businesses with essential tools to effectively manage risks associated with their confidential information. Through comprehensive risk management, this application enables organizations to identify and assess key vulnerabilities in their information infrastructure, establish robust controls, and safeguard their valuable assets against various potential threats. With a focus on asset classification, threat identification, and the implementation of mitigation strategies, "Risk Management" empowers businesses to make informed decisions and maintain an optimal level of security in their business environment.
+
+# Deployed app
+
+https://wonderful-praline-2d9d30.netlify.app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
